@@ -2,13 +2,18 @@
 //  AutoShopApp.swift
 //  AutoShop
 //
-//  Created by DOM LEUNG on 20/1/2024.
+//  Created by IZZY on 20/1/2024.
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct AutoShopApp: App {
+    init() {
+        FirebaseApp.configure()
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()

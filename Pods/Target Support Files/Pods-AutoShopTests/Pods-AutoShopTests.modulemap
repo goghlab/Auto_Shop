@@ -1,0 +1,6 @@
+framework module Pods_AutoShopTests {
+  umbrella header "Pods-AutoShopTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
