@@ -16,7 +16,7 @@ struct AutoShopApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OnboardingView()
         }
     }
 }

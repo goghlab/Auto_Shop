@@ -15,21 +15,21 @@ struct OnboardingView: View {
                     Image("eilogo") // Replace "eilogo" with your actual image asset name
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 180, height: 180)
-                        .padding(.bottom, -50)
+                        .frame(width: 220, height: 220)
+                        .padding(.bottom, -90)
 
-                    Text("Welcome to AutoShop!")
-                        .font(.system(size: 16))
+                    Text("歡迎進入AutoShop!")
+                        .font(.system(size: 20))
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
                         .padding()
-                        .font(.system(size: 10)) // Adjust the size as needed
+
 
                     NavigationLink(
                         destination: Signup(),
                         isActive: $isShowingSignupView,
                         label: {
-                            Button("Get Started") {
+                            Button("進入商店") {
                                 // Add any actions you want when the "Get Started" button is tapped
                                 isShowingSignupView = true
                             }
