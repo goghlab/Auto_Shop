@@ -14,15 +14,16 @@ struct MyqrcodeView: View {
                 Spacer()
 
                 VStack {
-                    // Display QR code without the "wellcome" image
-                    ZStack(alignment: .center) {
-                        generateQRCode(from: uid)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 300, height: 300, alignment: .center)
-                            .padding()
-                    }
-                    .padding(.trailing, 40)
+                        // Display QR code without the "wellcome" image
+                        ZStack(alignment: .center) {
+                            generateQRCode(from: uid)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 300, height: 300, alignment: .center)
+                                .padding(.trailing, 00) // Adjust the padding here to move the QR code right
+                        }
+                        .padding(.horizontal) // Add horizontal padding for center alignment
+                        .padding(.top, 20)
 
                     Text("掃一掃進入AutoShop")
                         .font(.title)

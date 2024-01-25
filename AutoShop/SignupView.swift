@@ -13,11 +13,13 @@ struct Signup: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("客戶登記")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .padding(.bottom, 20)
-                    .foregroundColor(.blue)
+                ZStack {
+                    Text("客戶登記")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(.blue)
+                }
+                .padding(.bottom, 20)
 
                 TextField("輸入電郵", text: $email)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
