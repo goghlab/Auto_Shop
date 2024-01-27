@@ -6,17 +6,17 @@ struct OnboardingView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Image("bg1") // Replace "bg1" with your actual background image asset name
+                Image("bg1")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .edgesIgnoringSafeArea(.all)
 
                 VStack {
-                    Image("eilogo") // Replace "eilogo" with your actual image asset name
+                    Image("Autoshopicon")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 220, height: 220)
-                        .padding(.bottom, -90)
+                        .frame(width: 180, height: 180)
+                        .padding(.bottom, -10)
 
                     Text("歡迎進入AutoShop!")
                         .font(.system(size: 20))
@@ -24,29 +24,34 @@ struct OnboardingView: View {
                         .multilineTextAlignment(.center)
                         .padding()
 
-
                     NavigationLink(
                         destination: Signup(),
                         isActive: $isShowingSignupView,
                         label: {
-                            Button("進入商店") {
-                                // Add any actions you want when the "Get Started" button is tapped
-                                isShowingSignupView = true
-                            }
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.blue)
-                            .cornerRadius(10)
+                            EmptyView()
                         }
                     )
                 }
                 .padding()
                 .onAppear {
-                    // Use a delay to wait for two seconds (adjust as needed)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        // Switch to the signup page
                         isShowingSignupView = true
                     }
+                }
+
+                VStack {
+                    Spacer()
+                    Image("eilogo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 130, height: 130)
+                        .padding(.bottom, -20)
+
+                    Text("All rights reserved by Everything Intelligence 2024")
+                        .font(.footnote)
+                        .foregroundColor(.black) // Set text color to black
+                        .opacity(0.8)
+                        .padding(.bottom, 0)
                 }
             }
         }

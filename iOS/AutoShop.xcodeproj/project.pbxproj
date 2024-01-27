@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		343F08CEF975082301760A4B /* Pods_AutoShopTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDEAE75E0B934BB006D7CB4 /* Pods_AutoShopTests.framework */; };
+		43BF48B72B650C2200F0694A /* ShareButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BF48B62B650C2200F0694A /* ShareButtonStyle.swift */; };
 		6CAD82FF2B5BBBC80012E04E /* AutoShopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD82FE2B5BBBC80012E04E /* AutoShopApp.swift */; };
 		6CAD83032B5BBBCA0012E04E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CAD83022B5BBBCA0012E04E /* Assets.xcassets */; };
 		6CAD83062B5BBBCA0012E04E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CAD83052B5BBBCA0012E04E /* Preview Assets.xcassets */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		1E1F60FD08E2D2680FD2B91A /* Pods-AutoShop-AutoShopUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoShop-AutoShopUITests.release.xcconfig"; path = "Target Support Files/Pods-AutoShop-AutoShopUITests/Pods-AutoShop-AutoShopUITests.release.xcconfig"; sourceTree = "<group>"; };
+		43BF48B62B650C2200F0694A /* ShareButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareButtonStyle.swift; sourceTree = "<group>"; };
 		5013016BE659C2F53153FBF4 /* Pods-AutoShopTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoShopTests.release.xcconfig"; path = "Target Support Files/Pods-AutoShopTests/Pods-AutoShopTests.release.xcconfig"; sourceTree = "<group>"; };
 		5054104FF26961755F444065 /* Pods_AutoShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CAD82FB2B5BBBC80012E04E /* AutoShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +159,7 @@
 				6CAD833A2B5FA01B0012E04E /* PaymentSetupNoticeView.swift */,
 				6CAD83382B5EE2540012E04E /* PaymentView.swift */,
 				6CAD83362B5EE23D0012E04E /* CartView.swift */,
+				43BF48B62B650C2200F0694A /* ShareButtonStyle.swift */,
 				6CAD83022B5BBBCA0012E04E /* Assets.xcassets */,
 				6CAD83042B5BBBCA0012E04E /* Preview Content */,
 			);
@@ -431,6 +434,7 @@
 				6CAD83352B5EDC280012E04E /* LoginView.swift in Sources */,
 				6CAD83312B5E27860012E04E /* MyqrcodeView.swift in Sources */,
 				6CAD833B2B5FA01B0012E04E /* PaymentSetupNoticeView.swift in Sources */,
+				43BF48B72B650C2200F0694A /* ShareButtonStyle.swift in Sources */,
 				6CAD83392B5EE2540012E04E /* PaymentView.swift in Sources */,
 				6CAD83292B5BC0DF0012E04E /* OnboardingView.swift in Sources */,
 				6CAD82FF2B5BBBC80012E04E /* AutoShopApp.swift in Sources */,

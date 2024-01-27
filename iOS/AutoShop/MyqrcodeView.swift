@@ -7,6 +7,7 @@ struct MyqrcodeView: View {
     @State private var isPaymentSetupNoticePresented = false
     @State private var isActivePaymentView = false
     @State private var isActiveCartView = false
+    @State private var isInfoButtonTapped = false // Added state for info button
 
     var body: some View {
         NavigationView {
@@ -14,22 +15,43 @@ struct MyqrcodeView: View {
                 Spacer()
 
                 VStack {
-                        // Display QR code without the "wellcome" image
-                        ZStack(alignment: .center) {
-                            generateQRCode(from: uid)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 300, height: 300, alignment: .center)
-                                .padding(.trailing, 00) // Adjust the padding here to move the QR code right
-                        }
-                        .padding(.horizontal) // Add horizontal padding for center alignment
-                        .padding(.top, 20)
-
-                    Text("掃一掃進入AutoShop")
+                    Text("My QR Code")
                         .font(.title)
-                        .fontWeight(.bold)
                         .foregroundColor(.black)
                         .padding(.top, 20)
+                        .fontWeight(.bold)
+
+                    ZStack(alignment: .center) {
+                        generateQRCode(from: uid)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 300, height: 300, alignment: .center)
+                            .padding(.trailing, 00) // Adjust the padding here to move the QR code right
+
+                        // Info Button
+                        Button(action: {
+                            isInfoButtonTapped.toggle()
+                        }) {
+                            Image(systemName: "questionmark.circle.fill")
+                                .font(.system(size: 30))
+                                .foregroundColor(.gray)
+                        }
+                        .padding()
+                        .background(Color.white)
+                        .clipShape(Circle())
+                        .offset(x: 120, y: 120)
+                        .sheet(isPresented: $isInfoButtonTapped) {
+                            PaymentSetupNoticeView()
+                        }
+                    }
+                    .padding(.horizontal) // Add horizontal padding for center alignment
+                    .padding(.top, 20)
+
+                    Text("掃一掃進入AutoShop")
+                        .font(.system(size: 18, weight: .bold)) // Adjust the size as needed
+                        .foregroundColor(.black)
+                        .padding(.top, 20)
+                        .fontWeight(.bold)
                 }
                 .padding()
 
@@ -95,7 +117,7 @@ struct MyqrcodeView: View {
                 }
                 .padding(.bottom, 10)
             }
-            .background(Color.white)
+            .background(Image("bg").resizable().scaledToFill())
             .edgesIgnoringSafeArea(.all)
             .sheet(isPresented: $isPaymentSetupNoticePresented) {
                 PaymentSetupNoticeView()
@@ -129,6 +151,7 @@ struct MyqrcodeView: View {
         let adjustedImage = applyContrastAdjustment(to: uiImage)
 
         return Image(uiImage: adjustedImage)
+            .resizable()
             .interpolation(.none)
     }
 

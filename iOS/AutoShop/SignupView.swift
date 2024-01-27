@@ -12,73 +12,85 @@ struct Signup: View {
 
     var body: some View {
         NavigationView {
-            VStack {
-                ZStack {
+            ZStack {
+                Image("bg")
+                    .resizable()
+                    .scaledToFill()
+                    .edgesIgnoringSafeArea(.all)
+
+                VStack(spacing: 20) {
                     Image("Autoshopicon")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 80, height: 80)
-                        .offset(y: -70)
+                        .offset(y: 0)
 
-                    Text("客戶登記")
+                    Text("用戶登記")
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(.black)
-                }
-                .padding(.bottom, 10)
+                        .padding(.bottom, 30)
 
-                TextField("輸入電郵", text: $email)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal)
-                    .padding(.bottom, 10)
+                    VStack(spacing: 15) {
+                        TextField("輸入電郵", text: $email)
+                            .padding()
+                            .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white))
+                            .foregroundColor(.black)
+                            .font(.body)
+                            .autocapitalization(.none)
 
-                SecureField("輸入密碼", text: $password)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal)
-                    .padding(.bottom, 10)
-
-                Text(errorMessage)
-                    .foregroundColor(.red)
-                    .padding(.bottom, 10)
-
-                Button("立即登記") {
-                    if isValidInput() {
-                        signUpWithFirebase()
-                    } else {
-                        errorMessage = "Invalid input. Please check your information."
+                        SecureField("輸入密碼", text: $password)
+                            .padding()
+                            .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.white))
+                            .foregroundColor(.black)
+                            .font(.body)
+                            .autocapitalization(.none)
                     }
-                }
-                .padding()
-                .foregroundColor(.white)
-                .background(Color.blue)
-                .cornerRadius(10)
 
-                HStack {
-                    Text("註冊即表示您同意我們的")
+                    Text(errorMessage)
+                        .foregroundColor(.red)
+                        .padding(.bottom, 10)
 
-                    NavigationLink(destination: MyqrcodeView(uid: uid ?? ""), isActive: $navigateToQRCodeView) {
-                        EmptyView()
+                    Button(action: {
+                        if isValidInput() {
+                            signUpWithFirebase()
+                        } else {
+                            errorMessage = "Invalid input. Please check your information."
+                        }
+                    }) {
+                        Text("立即登記")
+                            .foregroundColor(.white)
+                            .font(.headline)
+                            .padding(.vertical, 0) // Adjust vertical padding here
                     }
-                    .isDetailLink(false)
+                    .buttonStyle(SharedButtonStyle())
+                    .frame(maxWidth: .infinity)
 
-                    // Use a Link for the Privacy Policy
-                    Link("隱私政策", destination: URL(string: "https://www.everything-intelligence.com/privacy/")!)
-                        .foregroundColor(.blue)
-                }
-                .padding(.top, 10)
+                    HStack {
+                        Text("註冊即表示您同意我們的")
 
-                // Text link for login
-                Text("已有戶口？立即登入")
-                    .foregroundColor(.blue)
-                    .underline()
-                    .onTapGesture {
-                        navigateToLoginView = true // Set the state variable to trigger navigation
+                        NavigationLink(destination: MyqrcodeView(uid: uid ?? ""), isActive: $navigateToQRCodeView) {
+                            EmptyView()
+                        }
+                        .isDetailLink(false)
+
+                        // Use a Link for the Privacy Policy
+                        Link("隱私政策", destination: URL(string: "https://www.everything-intelligence.com/privacy/")!)
+                            .foregroundColor(.blue)
                     }
                     .padding(.top, 10)
+
+                    // Text link for login
+                    Text("已有戶口？立即登入")
+                        .foregroundColor(.blue)
+                        .underline()
+                        .onTapGesture {
+                            navigateToLoginView = true // Set the state variable to trigger navigation
+                        }
+                        .padding(.top, 10)
+                }
+                .padding()
             }
-            .padding()
-            .background(Color.white)
-            .edgesIgnoringSafeArea(.all)
             .background(NavigationLink("", destination: LoginView(), isActive: $navigateToLoginView))
             // Use an invisible NavigationLink as a workaround for immediate navigation
         }
@@ -121,3 +133,4 @@ struct Signup: View {
         }
     }
 }
+
