@@ -10,11 +10,17 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Image("Autoshopicon")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 80, height: 80)
+                    .offset(y: 0)
+
                 Text("客戶登入") // Customer Login in traditional Chinese
-                    .font(.largeTitle)
+                    .font(.title)
                     .fontWeight(.bold)
-                    .padding(.bottom, 20)
-                    .foregroundColor(.blue)
+                    .foregroundColor(.black)
+                    .padding(.bottom, 30) // Increase the bottom padding for more spacing
 
                 TextField("輸入電郵", text: $email) // Enter Email in traditional Chinese
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -58,6 +64,7 @@ struct LoginView: View {
             .padding()
             .background(Color.white)
             .edgesIgnoringSafeArea(.all)
+            .offset(y: -50) 
         }
     }
 
@@ -75,7 +82,7 @@ struct LoginView: View {
     private func authenticateUser() {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
-                errorMessage = "錯誤：\(error.localizedDescription)" // Error: ... in traditional Chinese
+                errorMessage = "錯誤：\(error.localizedDescription)"
             } else {
                 navigateToQRCodeView = true
             }

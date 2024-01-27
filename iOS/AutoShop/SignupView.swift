@@ -14,12 +14,18 @@ struct Signup: View {
         NavigationView {
             VStack {
                 ZStack {
+                    Image("Autoshopicon")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 80, height: 80)
+                        .offset(y: -70)
+
                     Text("客戶登記")
-                        .font(.largeTitle)
+                        .font(.title)
                         .fontWeight(.bold)
-                        .foregroundColor(.blue)
+                        .foregroundColor(.black)
                 }
-                .padding(.bottom, 20)
+                .padding(.bottom, 10)
 
                 TextField("輸入電郵", text: $email)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -55,10 +61,9 @@ struct Signup: View {
                     }
                     .isDetailLink(false)
 
-                    Button("隱私政策") {
-                        navigateToQRCodeView = true
-                    }
-                    .foregroundColor(.blue)
+                    // Use a Link for the Privacy Policy
+                    Link("隱私政策", destination: URL(string: "https://www.everything-intelligence.com/privacy/")!)
+                        .foregroundColor(.blue)
                 }
                 .padding(.top, 10)
 
